@@ -178,7 +178,7 @@ a {
   margin-left: auto;
   margin-right: auto;
 
-  border: 1px solid transparent;
+  border: 1px solid var(--accent-color);
   border-radius: 4px;
   background-color: var(--accent-color);
   color: var(--primary-white-color);
@@ -190,7 +190,10 @@ a {
 .button:hover,
 .button:focus {
   background-color: var(--hover-accent-color);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-color: var(--hover-accent-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -349,13 +352,10 @@ body {
 
 .site-nav .current::after {
   content: "";
-
   height: 4px;
   border-radius: 2px;
   transform: translateY(26px);
-
   display: block;
-
   background-color: var(--hover-accent-color);
 
 }
@@ -767,6 +767,9 @@ section.hero {
   color: var(--primary-white-color);
 }
 
+.footer-icon {
+  margin-right: 80px;
+}
 .footer-icon .icon-list {
   padding-left: 0;
   margin-top: 0;
@@ -781,6 +784,8 @@ section.hero {
 
 .footer-container {
   display: flex;
+  outline: 1px solid palevioletred;
+  align-items: flex-start;
 }
 
 .footer-icon .list-item {
@@ -799,6 +804,61 @@ section.hero {
   background-color: var(--hover-green-color);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.subscribe-box {
+  position: relative;
+  display: flex;
+  flex-direction: row; 
+  align-items: flex-end;
+  
+ 
+ width: 453px;
+}
+.subscribe-box .subscribe-lab {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--primary-white-color);
+  margin-bottom: 0;
+  
+ 
+}
+.user-email {
+  margin-top: 16px;
+  width: 264px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: var(--primary-page-color);
+  border-radius: 4px;
+  margin-right: 24px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  
+}
+.subscribe-box button.btn-subscribe {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  width: 165px;
+  height: 40px;
+  
+}
+
+.user-email:hover {
+  border-color: var(--hover-accent-color);
+  background-color: var(--primary-white-color);
+}
+
+.user-email:focus {
+  border-color: var(--hover-accent-color);
+  background-color: var(--primary-white-color);
+  color: var(--primary-page-color);
+ 
+}
+  
 
 /** ============================== /FOOTER ============================== **/
 
