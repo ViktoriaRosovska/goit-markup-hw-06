@@ -835,31 +835,36 @@ section.hero {
   padding-bottom: 8px;
   padding-left: 16px;
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
-  
+  color: rgba(255, 255, 255, 0.6);  
 }
-.subscribe-box button.btn-subscribe {
+.subscribe-box .btn-subscribe {
   display: flex; 
   justify-content: center;
   align-items: center;
   width: 165px;
   height: 40px;
-  
+  padding-right: 0;
+  padding-left: 0;
 }
 
-.user-email:hover {
-  border-color: var(--hover-accent-color);
-  background-color: var(--primary-white-color);
-}
-
-.user-email:focus {
-  border-color: var(--hover-accent-color);
+.user-email:focus,
+.user-email:hover
+ {
   background-color: var(--primary-white-color);
   color: var(--primary-page-color);
- 
 }
   
+.btn-subs-icon {
+ width: 24px;
+ height: 24px;
+ background-image: url("../images/svg/telegram.svg");
+ background-size: contain;
+ background-position: center; 
+}
 
+.btn-subscr-text {
+  margin-right: 16px;
+}
 /** ============================== /FOOTER ============================== **/
 
 /* Позиционирование
