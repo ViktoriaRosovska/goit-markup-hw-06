@@ -16,7 +16,7 @@
   /* typographic variables*/
   --main-font: "Roboto", sans-serif;
   --main-font-size: 16px;
-  --main-title-font-size: 20px;
+  --main-title-font-size: 36px;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
 
@@ -127,7 +127,6 @@ a {
   padding-top: 120px;
   margin-left: auto;
   margin-right: auto;
-  /* outline: 1px solid tomato; */
 }
 
 .section-colored {
@@ -139,7 +138,7 @@ a {
   margin-top: 0;
 
   font-weight: var(--font-weight-medium);
-  font-size: var(--main-title-font-size);
+  font-size: var(--main-font-size);
   line-height: 1.2;
 
   color: var(--primary-page-color);
@@ -151,7 +150,7 @@ a {
   text-align: center;
 
   font-weight: var(--font-weight-bold);
-  font-size: 36px;
+  font-size: var(--main-title-font-size);
   line-height: 1.11;
   text-transform: capitalize;
 
@@ -194,83 +193,6 @@ a {
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
               border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-
-/* modal form for order service */
-.backdrop {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 1000;
-
-  background-color: rgba(46, 47, 66, 0.4);
-  opacity: 1;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 2500ms cubic-bezier(0.4, 0, 0.2, 1) 250ms;
-}
-
-.backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-  transition: visibility 2500ms linear, opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.backdrop.is-hidden .modal-form {
-  transform: translate(-50%, -50%) scale(0.3);
-}
-
-.modal-form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 408px;
-  height: 576px;
-
-  display: flex;
-  justify-content: right;
-  background-color: var(--bg-modal-color);
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 1px 3px rgba(0, 0, 0, 0.12),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btn-modal {
-  margin-right: 24px;
-  margin-top: 24px;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-
-  display: flex;
-
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
-  background-color: var(--alternative-color);
-  color: #000000;
-
-  cursor: pointer;
-}
-
-.btn-modal:hover,
-.btn-modal:focus {
-  background-color: var(--hover-accent-color);
-
-}
-
-.icon-modal-close {
-  fill: currentColor;
-}
-
-.btn-modal:hover .icon-modal-close,
-.btn-modal:focus .icon-modal-close {
-  fill: var(--primary-white-color);
 }
 
 /** ============================== /COMPONENTS ============================== **/
@@ -784,7 +706,6 @@ section.hero {
 
 .footer-container {
   display: flex;
-  outline: 1px solid palevioletred;
   align-items: flex-start;
 }
 
@@ -793,7 +714,11 @@ section.hero {
   height: 40px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-icon .link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -810,9 +735,7 @@ section.hero {
   display: flex;
   flex-direction: row; 
   align-items: flex-end;
-  
- 
- width: 453px;
+  width: 453px;
 }
 .subscribe-box .subscribe-lab {
   display: flex;
@@ -820,8 +743,6 @@ section.hero {
   align-items: flex-start;
   color: var(--primary-white-color);
   margin-bottom: 0;
-  
- 
 }
 .user-email {
   margin-top: 16px;
@@ -857,9 +778,10 @@ section.hero {
 .btn-subs-icon {
  width: 24px;
  height: 24px;
- background-image: url("../images/svg/telegram.svg");
+ background-image: url("../images/svg/icon-modal/telegram.svg");
  background-size: contain;
  background-position: center; 
+ 
 }
 
 .btn-subscr-text {
@@ -867,6 +789,189 @@ section.hero {
 }
 /** ============================== /FOOTER ============================== **/
 
+
+/** ============================== MODAL FORM FOR ORDER SERVICE ============================== **/
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+
+  background-color: rgba(46, 47, 66, 0.4);
+  opacity: 1;
+  /* transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 2500ms cubic-bezier(0.4, 0, 0.2, 1) 250ms; */
+}
+
+.backdrop.is-hidden {
+  opacity: 1;
+  /* pointer-events: none;
+  visibility: hidden;
+  transition: visibility 2500ms linear, opacity 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+}
+
+.backdrop.is-hidden .modal-form {
+  /* transform: translate(-50%, -50%) scale(0.3); */
+}
+
+.modal-form {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 408px;
+  height: 584px;
+  padding-top: 72px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 24px;
+  z-index: 110;
+  text-align: center;
+  background-color: var(--bg-modal-color);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+
+  transform: translate(-50%, -50%) scale(1);
+  
+  /* transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+}
+
+.btn-modal {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: var(--alternative-color);
+  color: #000000;
+
+  cursor: pointer;
+}
+
+.btn-modal:hover,
+.btn-modal:focus {
+  background-color: var(--hover-accent-color);
+
+}
+
+.icon-modal-close {
+  fill: currentColor;
+}
+
+.btn-modal:hover .icon-modal-close,
+.btn-modal:focus .icon-modal-close {
+  fill: var(--primary-white-color);
+}
+
+.modal-form .form-user-info {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.modal-form .modal-title {
+  margin-bottom: 34px;
+}
+.modal-form .modal-lab {
+  position: relative;
+}
+.modal-form .user-info-lab {
+  position: absolute;
+  top: -22px;
+  left: 0;
+  font-size: 12px;
+  letter-spacing: .01em;
+  color: var(--icon-customers-color);
+ 
+}
+
+.modal-form .input {
+  width: 100%;
+  margin-bottom: 26px;
+  height: 40px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  padding-left: 38px;
+
+}
+.modal-form .textarea {
+  height: 120px;
+  width: 100%;
+  padding-left: 16px;
+  padding-top: 8px;
+  margin-bottom: 16px;
+  resize: none;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+}
+
+.modal-form .textarea:placeholder-shown {
+  font-size: 12px;
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.modal-form .modal-checkbox-lab {
+  margin-bottom: 24px;
+  font-size: 12px;
+}
+
+.modal-form .police-link {
+  text-decoration: underline;
+  color: var(--accent-color);
+}
+.modal-form .btn-accept {
+  width: 169px;
+  height: 56px;
+}
+
+.modal-form .icon-person {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 11px;
+  left: 16px;
+ 
+}
+.modal-form .icon-phone {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+.modal-form .icon-email {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+.modal-form .input:hover,
+.modal-form input:focus,
+.modal-form .textarea:hover,
+.modal-form .textarea:focus
+ {
+  border-color: var(--accent-color);
+  border-width: 1px;
+  outline: none; 
+}
+
+.modal-form .input:hover+.icon-email, 
+.modal-form .input:hover+.icon-person, 
+.modal-form .input:hover+.icon-phone,
+.modal-form .input:focus+.icon-email,
+.modal-form .input:focus+.icon-person,
+.modal-form .input:focus+.icon-phone
+ {
+  fill: var(--accent-color);
+}
+
+ /** ==============================  ============================== **/
 /* Позиционирование
 Блочная модель
 Типографика
