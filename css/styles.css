@@ -839,7 +839,7 @@ section.hero {
     0px 2px 1px rgba(0, 0, 0, 0.2);
 
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); 
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-close {
@@ -1008,6 +1008,13 @@ section.hero {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+.btn-accept {
+
+  
+  transition: vi 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
  /** ==============================  ============================== **/
 /* Позиционирование

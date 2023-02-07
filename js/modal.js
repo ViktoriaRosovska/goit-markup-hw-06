@@ -7,6 +7,7 @@
 
     refs.openModalBtn.addEventListener("click", toggleModal);
     refs.closeModalBtn.addEventListener("click", toggleModal);
+    refs.modal.querySelector("form").addEventListener("submit", toggleModal);
 
     function toggleModal() {
         refs.modal.classList.toggle("is-hidden");
