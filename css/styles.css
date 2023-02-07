@@ -184,15 +184,16 @@ a {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, .15);
 
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button:hover,
 .button:focus {
   background-color: var(--hover-accent-color);
   border-color: var(--hover-accent-color);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  
 }
 
 /** ============================== /COMPONENTS ============================== **/
@@ -573,10 +574,9 @@ section.hero {
     0px 2px 1px rgba(0, 0, 0, 0),
     0px 2px 2px rgba(0, 0, 0, 0);
 
-
   cursor: pointer;
-
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btnfilter:hover,
@@ -756,7 +756,9 @@ section.hero {
   padding-bottom: 8px;
   padding-left: 16px;
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);  
+  color: rgba(255, 255, 255, 0.6); 
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+               
 }
 .subscribe-box .btn-subscribe {
   display: flex; 
@@ -773,6 +775,7 @@ section.hero {
  {
   background-color: var(--primary-white-color);
   color: var(--primary-page-color);
+  outline: none;
 }
   
 .btn-subs-icon {
@@ -802,18 +805,20 @@ section.hero {
 
   background-color: rgba(46, 47, 66, 0.4);
   opacity: 1;
-  /* transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 2500ms cubic-bezier(0.4, 0, 0.2, 1) 250ms; */
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+              background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 250ms;
 }
 
 .backdrop.is-hidden {
-  opacity: 1;
-  /* pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
   visibility: hidden;
-  transition: visibility 2500ms linear, opacity 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+  transition: visibility 2500ms linear, 
+              opacity 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
 .backdrop.is-hidden .modal-form {
-  /* transform: translate(-50%, -50%) scale(0.3); */
+  transform: translate(-50%, -50%) scale(0.3);
 }
 
 .modal-form {
@@ -834,11 +839,10 @@ section.hero {
     0px 2px 1px rgba(0, 0, 0, 0.2);
 
   transform: translate(-50%, -50%) scale(1);
-  
-  /* transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
-.btn-modal {
+.btn-close {
   position: absolute;
   right: 24px;
   top: 24px;
@@ -852,58 +856,52 @@ section.hero {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   background-color: var(--alternative-color);
-  color: #000000;
+  fill: var(--primary-page-color);
 
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btn-modal:hover,
-.btn-modal:focus {
+.btn-close:hover,
+.btn-close:focus {
   background-color: var(--hover-accent-color);
-
-}
-
-.icon-modal-close {
-  fill: currentColor;
-}
-
-.btn-modal:hover .icon-modal-close,
-.btn-modal:focus .icon-modal-close {
+  border-color: var(--hover-accent-color);
   fill: var(--primary-white-color);
 }
 
 .modal-form .form-user-info {
   display: flex;
-  flex-direction: column;
-  
+  flex-direction: column; 
 }
 
 .modal-form .modal-title {
   margin-bottom: 34px;
 }
-.modal-form .modal-lab {
+.form-user-info .modal-lab {
   position: relative;
 }
-.modal-form .user-info-lab {
+.form-user-info .user-info-lab {
   position: absolute;
   top: -22px;
   left: 0;
   font-size: 12px;
   letter-spacing: .01em;
   color: var(--icon-customers-color);
- 
 }
 
-.modal-form .input {
+.form-user-info .input {
   width: 100%;
   margin-bottom: 26px;
   height: 40px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   padding-left: 38px;
-
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.modal-form .textarea {
+
+.form-user-info .textarea {
   height: 120px;
   width: 100%;
   padding-left: 16px;
@@ -912,65 +910,105 @@ section.hero {
   resize: none;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-form .textarea:placeholder-shown {
+.form-user-info .textarea:placeholder-shown {
   font-size: 12px;
   color: rgba(117, 117, 117, 0.5);
 }
 
-.modal-form .modal-checkbox-lab {
-  margin-bottom: 24px;
-  font-size: 12px;
+.modal-lab .form-icon {
+  position: absolute; 
+  top: 8px;
+  left: 16px;
+  fill: var(--primary-page-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.modal-form .police-link {
-  text-decoration: underline;
-  color: var(--accent-color);
-}
-.modal-form .btn-accept {
-  width: 169px;
-  height: 56px;
-}
-
-.modal-form .icon-person {
-  width: 18px;
-  height: 18px;
-  position: absolute;
+.form-user-info .icon-person {
   top: 11px;
-  left: 16px;
- 
+  
 }
-.modal-form .icon-phone {
-  position: absolute;
-  top: 8px;
-  left: 16px;
-}
-.modal-form .icon-email {
-  position: absolute;
-  top: 8px;
-  left: 16px;
-}
-.modal-form .input:hover,
-.modal-form input:focus,
-.modal-form .textarea:hover,
-.modal-form .textarea:focus
+.modal-lab .input:hover,
+.modal-lab .input:focus,
+.modal-lab .textarea:hover,
+.modal-lab .textarea:focus
  {
   border-color: var(--accent-color);
-  border-width: 1px;
   outline: none; 
 }
 
-.modal-form .input:hover+.icon-email, 
-.modal-form .input:hover+.icon-person, 
-.modal-form .input:hover+.icon-phone,
-.modal-form .input:focus+.icon-email,
-.modal-form .input:focus+.icon-person,
-.modal-form .input:focus+.icon-phone
- {
+.modal-lab .input:hover+.form-icon, 
+.modal-lab .input:focus+.form-icon {
   fill: var(--accent-color);
 }
 
+.modal-lab .form-icon:hover,
+.modal-lab .form-icon:focus {
+  fill: var(--accent-color);
+}
+
+.form-user-info .modal-checkbox-lab {
+  font-size: 12px;
+  user-select: none;
+  color: #757575;
+  margin-left: 24px;
+}
+
+.accept-group {
+  margin-bottom: 24px;
+}
+
+.form-user-info .police-link {
+  text-decoration: underline;
+  color: var(--accent-color);
+}
+.form-user-info .btn-accept {
+  width: 169px;
+  height: 56px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.modal-checkbox-lab::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  border: 1.25px solid var(--primary-page-color);
+  border-radius: 2px;
+}
+
+.accept-checkbox:checked~.modal-checkbox-lab::after {
+  background-color: var(--hover-accent-color);
+  border-color: var(--hover-accent-color);
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='8' fill='none'%3e%3cpath fill='%23F4F4FD' d='M8.446.255A.917.917 0 0 1 10 .901a.928.928 0 0 1-.242.649L4.864 7.704a.92.92 0 0 1-1.019.229.92.92 0 0 1-.306-.204L.293 4.466a.925.925 0 0 1-.226-1.024.925.925 0 0 1 .87-.578.916.916 0 0 1 .656.294L4.162 5.74 8.422.282a.329.329 0 0 1 .025-.027h-.001Z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-origin: border-box;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+  border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accept-group {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+.accept-group .accept-checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
  /** ==============================  ============================== **/
 /* Позиционирование
 Блочная модель
