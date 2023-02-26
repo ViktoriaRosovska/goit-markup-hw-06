@@ -308,8 +308,8 @@ body {
   margin-right: 0;
 }
 
-.site-nav .link:hover,
-.site-nav .link:focus,
+.nav-list .link:hover,
+.nav-list .link:focus,
 .adress-list .link:hover,
 .adress-list .link:focus {
   color: var(--hover-accent-color);
